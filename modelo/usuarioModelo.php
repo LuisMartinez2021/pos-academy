@@ -25,4 +25,22 @@ class ModeloUsuario{
         $stmt->close();
         $stmt->null;
     }
+    
+    static public function mdlRegUsuario($data){
+        $loginUsuario=$data["loginUsuario"];
+        $password=$data["password"];
+        $perfil=$data["perfil"];
+        
+        $stmt=Conexion::conectar()->prepare("INSERT INTO usuario(login_usuario,password,perfil) 
+        VALUES('$loginUsuario','$password','$perfil')");
+        
+        if($stmt->execute()){
+            return "ok";
+        }else{
+            return "error";
+        }
+        
+        $stmt->close();
+        $stmt->null;
+    }
 }
