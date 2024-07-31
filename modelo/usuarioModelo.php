@@ -56,4 +56,14 @@ class ModeloUsuario{
         $stmt->close();
         $stmt->null;
     }
+
+    static public function mdlInfoUsuario($id){
+        $stmt=Conexion::conectar()->prepare("SELECT * FROM usuario WHERE id_usuario=$id");
+        $stmt->execute();
+
+        return $stmt->fetch();
+
+        $stmt->close();
+        $stmt->null;
+    }
 }

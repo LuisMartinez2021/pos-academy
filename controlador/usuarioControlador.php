@@ -70,4 +70,9 @@ class ControladorUsuario{
         echo $respuesta;
         
     }
+
+    static public function ctrInfoUsuario($id){
+        $respuesta=ModeloUsuario::mdlInfoUsuario($id);
+        return $respuesta;
+    }
 }
