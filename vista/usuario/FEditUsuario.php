@@ -8,7 +8,7 @@ $usuario=ControladorUsuario::ctrInfoUsuario($id);
 
 ?>
 
-<form action="" id="FRegUsuario">
+<form action="" id="FEditUsuario">
     <div class="modal-header bg-primary">
         <h4 class="modal-title">Registro Nuevo Usuario</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -19,6 +19,7 @@ $usuario=ControladorUsuario::ctrInfoUsuario($id);
         <div class="form-group">
             <label for="">Login Usuario </label>
             <input type="text" class="form-control" name="login" id="login" value="<?php echo $usuario["login_usuario"];?>" readonly>
+            <input type="hidden" name="idUsuario" value="<?php echo $usuario["login_usuario"];?>">
         </div>
         <div class="form-group">
             <label for="">Password </label>
@@ -27,6 +28,7 @@ $usuario=ControladorUsuario::ctrInfoUsuario($id);
         <div class="form-group">
             <label for="">Repetir Password </label>
             <input type="password" class="form-control" name="vrPassword" id="vrPassword" value="<?php echo $usuario["password"];?>">
+            <input type="hidden" value="<?php echo $usuario["password"];?>" name="passActual">
         </div>
         <div class="form-group">
             <label for="">Perfil </label>
@@ -36,8 +38,21 @@ $usuario=ControladorUsuario::ctrInfoUsuario($id);
             </select>
         </div>
         <div class="form-group">
-            <label for="">Estado </label>
-            <input type="password" class="form-control" name="vrPassword" id="vrPassword" placeholder="Repita Password">
+            <label for="">Estado</label>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="estadoActivo" name="estado" <?php if ($usuario["estado"]=="1"):?>checked<?php endif;?>>
+                        <label for="estadoActivo" class="custom-control-label">Activo</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="estadoInactivo" name="estado" <?php if ($usuario["estado"]=="0"):?>checked<?php endif;?>>
+                        <label for="estadoInactivo" class="custom-control-label">Inactivo</label>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="modal-footer justify-content-between">
@@ -50,15 +65,11 @@ $usuario=ControladorUsuario::ctrInfoUsuario($id);
     $(function () {
         $.validator.setDefaults({
             submitHandler: function () {
-                RegUsuario()
+                editUsuario(<?php $id;?>)
             }
         });
-        $('#FRegUsuario').validate({
+        $('#FEditUsuario').validate({
             rules: {
-                login: {
-                    required: true,
-                    minlength: 3
-                },
                 password: {
                     required: true,
                     minlength: 3

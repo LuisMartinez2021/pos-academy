@@ -66,3 +66,44 @@ function MEditUsuario(id) {
         }
     })
 }
+
+function editUsuario(id) {
+    var formData= new FormData($("#FEditUsuario")[0])//Extrae informacion del formulario usuario
+
+    if(formData.get("password")==formData.get("vrPassword")){
+        $.ajax({
+            type:"POST",
+            url:"controlador/usuarioControlador.php?ctrEditUsuario",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(data){
+
+                if(data="ok"){
+
+                    Swal.fire({
+                        title: "El Usuario ha sido registrado",
+                        icon:"success",
+                        showConfirmButton: false,
+                        timer: 1000
+                    })
+
+                    setTimeout(function(){
+                        location.reload()
+                    },1200)
+
+                }else{
+
+                    Swal.fire({
+                        title: "Error!",
+                        icon:"error",
+                        showConfirmButton: false,
+                        timer: 1000
+                    })
+                }
+
+            }
+        })
+    }
+}
