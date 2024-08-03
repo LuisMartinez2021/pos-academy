@@ -19,7 +19,7 @@ $usuario=ControladorUsuario::ctrInfoUsuario($id);
         <div class="form-group">
             <label for="">Login Usuario </label>
             <input type="text" class="form-control" name="login" id="login" value="<?php echo $usuario["login_usuario"];?>" readonly>
-            <input type="hidden" name="idUsuario" value="<?php echo $usuario["login_usuario"];?>">
+            <input type="hidden" name="idUsuario" value="<?php echo $usuario["id_usuario"];?>">
         </div>
         <div class="form-group">
             <label for="">Password </label>
@@ -42,13 +42,13 @@ $usuario=ControladorUsuario::ctrInfoUsuario($id);
             <div class="row">
                 <div class="col-sm-6">
                     <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="estadoActivo" name="estado" <?php if ($usuario["estado"]=="1"):?>checked<?php endif;?>>
+                        <input type="radio" class="custom-control-input" id="estadoActivo" name="estado" <?php if ($usuario["estado"]=="1"):?>checked<?php endif;?> value="1">
                         <label for="estadoActivo" class="custom-control-label">Activo</label>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="estadoInactivo" name="estado" <?php if ($usuario["estado"]=="0"):?>checked<?php endif;?>>
+                        <input type="radio" class="custom-control-input" id="estadoInactivo" name="estado" <?php if ($usuario["estado"]=="0"):?>checked<?php endif;?> value="0">
                         <label for="estadoInactivo" class="custom-control-label">Inactivo</label>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ $usuario=ControladorUsuario::ctrInfoUsuario($id);
     $(function () {
         $.validator.setDefaults({
             submitHandler: function () {
-                editUsuario(<?php $id;?>)
+                editUsuario()
             }
         });
         $('#FEditUsuario').validate({

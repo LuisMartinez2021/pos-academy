@@ -66,4 +66,22 @@ class ModeloUsuario{
         $stmt->close();
         $stmt->null;
     }
+    static public function mdlEditUsuario($data){
+
+        $password=$data["password"];
+        $perfil=$data["perfil"];
+        $estado=$data["estado"];
+        $id=$data["id"];
+
+        $stmt=Conexion::conectar()->prepare("UPDATE usuario SET password='$password', perfil='$perfil', estado='$estado' WHERE id_usuario=$id");
+
+        if($stmt->execute()){
+            return "ok";
+        }else{
+            return "error";
+        }
+
+        $stmt->close();
+        $stmt->null;
+    }
 }

@@ -79,11 +79,11 @@ function editUsuario(id) {
             contentType: false,
             processData: false,
             success: function(data){
-
+            console.log(data)
                 if(data="ok"){
 
                     Swal.fire({
-                        title: "El Usuario ha sido registrado",
+                        title: "El Usuario ha sido actualizado",
                         icon:"success",
                         showConfirmButton: false,
                         timer: 1000

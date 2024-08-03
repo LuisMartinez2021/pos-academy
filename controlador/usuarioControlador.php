@@ -79,16 +79,21 @@ class ControladorUsuario{
 
     static public function ctrEditUsuario(){
         require "../modelo/usuarioModelo.php";
-    
-        $password=password_hash($_POST["password"],PASSWORD_DEFAULT);
+
+        if($_POST["password"]==$_POST["passActual"]){
+            $password=$_POST["password"];
+        }else{
+            $password=password_hash($_POST["password"],PASSWORD_DEFAULT);
+        }
 
         $data=array(
-            "loginUsuario"=>$_POST["login"],
             "password"=>$password,
-            "perfil"=>"Moderador"
+            "id"=>$_POST["idUsuario"],
+            "perfil"=>$_POST["perfil"],
+            "estado"=>$_POST["estado"]
         );
 
-        $respuesta=ModeloUsuario::mdlRegUsuario($data);
+        $respuesta=ModeloUsuario::mdlEditUsuario($data);
 
         echo $respuesta;
 
