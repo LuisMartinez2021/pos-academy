@@ -12,6 +12,7 @@ function MNuevoUsuario(){
     })
     
 }
+
 function RegUsuario(){
     var formData= new FormData($("#FRegUsuario")[0])//Extrae informacion del formulario usuario
     
@@ -106,4 +107,40 @@ function editUsuario(id) {
             }
         })
     }
+}
+
+function MEliUsuario(id) {
+    var obj={
+        id:id
+    }
+
+    Swal.fire({
+        title:"Estas seguro de eliminar este usuario?",
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: "Confirmar",
+        denyButtonText: "Cancelar"
+    }).then((result)=>{
+        if(result.isConfirmed){
+            $.ajax({
+                type:"POST",
+                url:"controlador/usuarioControlador.php?ctrEliUsuario",
+                data: obj,
+                success: function(data){
+                    console.log(data)
+                    if(data="ok"){
+                        location.reload()
+                    }else{
+                        Swal.fire({
+                            title: "Error",
+                            text: "El usuario no puede ser eliminado",
+                            icon:"error",
+                            showConfirmButton: false,
+                            timer: 1000
+                        })
+                    }
+                }
+            })
+        }
+    })
 }
