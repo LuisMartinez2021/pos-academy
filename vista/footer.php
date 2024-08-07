@@ -36,6 +36,9 @@
 <script src="assets/plugins/sweetalert2/sweetalert2.min.js"></script>
 <!-- Me Plugins -->
 <script src="assets/js/usuario.js"></script>
+<script src="assets/js/cliente.js"></script>
+<!--<script src="assets/js/producto.js"></script>
+<script src="assets/js/factura.js"></script>-->
 
 <!--===========================
      Seccion de Modals
@@ -48,6 +51,17 @@
           <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <div class="modal fade" id="modal-lg">
+          <div class="modal-dialog modal-lg">
+              <div class="modal-content" id="content-lg">
+
+              </div>
+              <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
       

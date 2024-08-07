@@ -29,6 +29,7 @@ if(isset($_SESSION["ingreso"]) && $_SESSION["ingreso"]=="ok"){
     if(isset($_GET["ruta"])){
         if(isset($_GET["ruta"])=="inicio" ||
             isset($_GET["ruta"])=="VUsuario"||
+            isset($_GET["ruta"])=="VCliente"||
             isset($_GET["ruta"])=="salir"){
             include "menu.php";
             include $_GET["ruta"].".php";
