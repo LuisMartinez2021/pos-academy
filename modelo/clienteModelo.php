@@ -22,7 +22,7 @@ class ModeloCliente{
         $emailCliente=$data["emailCliente"];
         
         $stmt=Conexion::conectar()->prepare("INSERT INTO cliente(razon_social_cliente, nit_ci_cliente, direccion_cliente, nombre_cliente, telefono_cliente, email_cliente) 
-        VALUES('$rscliente','$password','$perfil')");
+        VALUES('$rscliente','$nitCI','$dirCliente','$nomCliente','$telCliente','$emailCliente')");
         
         if($stmt->execute()){
             return "ok";
