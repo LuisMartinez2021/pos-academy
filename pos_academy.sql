@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-08-2024 a las 14:56:09
+-- Tiempo de generación: 09-08-2024 a las 17:45:36
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 7.4.27
 
@@ -36,6 +36,15 @@ CREATE TABLE `cliente` (
   `telefono_cliente` varchar(50) NOT NULL,
   `email_cliente` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`id_cliente`, `razon_social_cliente`, `nit_ci_cliente`, `direccion_cliente`, `nombre_cliente`, `telefono_cliente`, `email_cliente`) VALUES
+(1, 'ATOMICAMARIA S.R.L.', 'CALACOTO, AV. FUERZA NAVAL CALLE 24-A N° 50', 'CALACOTO, AV. FUERZA NAVAL CALLE 24-A N° 50', 's/n', '', 'ATOMICAMARIA@gmail.com'),
+(2, 'BASSAM LTDA.', '1020185020', 'AV. Hernando Siles Esq. Hector Ormachea N.4554', 'Alison Ángela Márquez Callisaya', '2750055', 'BASSAM@gmail.com'),
+(3, 'TARGET SOFTWARE S.R.L.', '174918029', 'Av. 21 de San Miguel Nº 8413 Z. Calacoto', 'Walter Alejandro Meriles Pizarro.', '	2772208', 'TARGETSOFTWARE@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -175,7 +184,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `cufd`
