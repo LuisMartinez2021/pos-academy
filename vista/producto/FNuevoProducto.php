@@ -54,7 +54,7 @@
                             <label for="exampleInputFile">Imagen</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="exampleInputFile">
+                                    <input type="file" class="custom-file-input" id="exampleInputFile" placeholder="Elegir archivo">
                                     <label class="custom-file-label" for="exampleInputFile">Elegir archivo</label>
                                 </div>
                                 <div class="input-group-append">
