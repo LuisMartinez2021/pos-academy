@@ -68,7 +68,7 @@ function MEditProducto(id) {
     })
 }
 
-function editProducto(id) {
+function MEditProducto(id) {
     var formData= new FormData($("#FEditProducto")[0])//Extrae informacion del formulario producto
 
     if(formData.get("password")==formData.get("vrPassword")){
@@ -143,4 +143,36 @@ function MEliProducto(id) {
             })
         }
     })
+}
+
+function previsualizar() {
+    let image=document.getElementById("imgProducto").files[0]
+    
+    if(image["type"]!="image/png" && image["type"]!="image/jpeg"){
+
+        $("#imgProducto").val("")
+
+        Swal.fire({
+            title: "El archivo no es JPG o PNG",
+            icon:"error",
+            showConfirmButton: false,
+        })
+    }else if(image["size"]>10000000){
+        $("#imgProducto").val("")
+        
+        Swal.fire({
+            title: "El archivo no puede ser mayor a 10MB",
+            icon:"error",
+            showConfirmButton: false,
+        })
+    }else{
+        
+        let datosImagen=new FileReader
+        datosImagen.readAsDataURL(image)
+        
+        $(datosImagen).on("load",function (event) {
+            let rutaImagen=event.target.result
+            $(".previsualizar").attr("src",rutaImagen)
+        })
+    }
 }

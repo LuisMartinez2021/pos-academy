@@ -51,11 +51,11 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="exampleInputFile">Imagen</label>
+                            <label for="exampleInputFile">Imagen <span class="text-muted">(Peso maximo 10MB - JPG, PNG)</span></label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="exampleInputFile" placeholder="Elegir archivo">
-                                    <label class="custom-file-label" for="exampleInputFile">Elegir archivo</label>
+                                    <input type="file" class="custom-file-input" id="imgProducto" name="imgProducto" onchange="previsualizar()">
+                                    <label class="custom-file-label" for="imgProducto">Elegir archivo</label>
                                 </div>
                                 <div class="input-group-append">
                                     <button type="button" class="btn btn-info btn-flat"><i class="fas fa-upload"></i><span> Subir</span></button>
