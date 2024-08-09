@@ -2,31 +2,31 @@
 $ruta=parse_url($_SERVER["REQUEST_URI"]);
 
 if(isset($ruta["query"])){
-    if($ruta["query"]=="ctrRegUsuario" ||
-      $ruta["query"]=="ctrEditUsuario" ||
-      $ruta["query"]=="ctrEliUsuario"){
+    if($ruta["query"]=="ctrRegProducto" ||
+      $ruta["query"]=="ctrEditProducto" ||
+      $ruta["query"]=="ctrEliProducto"){
         $metodo=$ruta["query"];
-        $usuario=new ControladorUsuario();
-        $usuario->$metodo();
+        $producto=new ControladorProducto();
+        $producto->$metodo();
     }
 }
 
-class ControladorUsuario{
+class ControladorProducto{
     
-    static public function ctrIngresoUsuario(){
+    static public function ctrIngresoProducto(){
         
-        if(isset($_POST["usuario"])){
+        if(isset($_POST["producto"])){
             
-            $usuario=$_POST["usuario"];
+            $producto=$_POST["producto"];
             $password=$_POST["password"];
             
-            $resultado=ModeloUsuario::mdlAccesoUsuario($usuario);
+            $resultado=ModeloProducto::mdlAccesoProducto($producto);
             
-            if($resultado["login_usuario"]==$usuario && password_verify($password,$resultado["password"]) && $resultado["estado"]==1){
+            if($resultado["login_producto"]==$producto && password_verify($password,$resultado["password"]) && $resultado["estado"]==1){
 
-                $_SESSION["ingreso"]=$resultado["login_usuario"];
+                $_SESSION["ingreso"]=$resultado["login_producto"];
                 $_SESSION["ingreso"]=$resultado["perfil"];
-                $_SESSION["ingreso"]=$resultado["id_usuario"];
+                $_SESSION["ingreso"]=$resultado["id_producto"];
                 $_SESSION["ingreso"]="ok";
 
                 date_default_timezone_set("America/La_Paz");
@@ -34,9 +34,9 @@ class ControladorUsuario{
                 $hora=date("H-i-s");
 
                 $fechaHora=$fecha." ".$hora;
-                $id=$resultado["id_usuario"];
+                $id=$resultado["id_producto"];
 
-                $ultimoLogin=ModeloUsuario::mdlActualizarAcceso($fechaHora,$id);
+                $ultimoLogin=ModeloProducto::mdlActualizarAcceso($fechaHora,$id);
 
                 if($ultimoLogin=="ok"){
                     echo '<script>
@@ -51,35 +51,35 @@ class ControladorUsuario{
         
     }
     
-    static public function ctrInfoUsuarios(){
-        $respuesta=ModeloUsuario::mdlInfoUsuarios();
+    static public function ctrInfoProductos(){
+        $respuesta=ModeloProducto::mdlInfoProductos();
         return $respuesta;
     }
     
-    static public function ctrRegUsuario(){
-        require "../modelo/usuarioModelo.php";
+    static public function ctrRegProducto(){
+        require "../modelo/productoModelo.php";
         
         $password=password_hash($_POST["password"],PASSWORD_DEFAULT);
         
         $data=array(
-            "loginUsuario"=>$_POST["login"],
+            "loginProducto"=>$_POST["login"],
             "password"=>$password,
             "perfil"=>"Moderador"
         );
         
-        $respuesta=ModeloUsuario::mdlRegUsuario($data);
+        $respuesta=ModeloProducto::mdlRegProducto($data);
         
         echo $respuesta;
         
     }
 
-    static public function ctrInfoUsuario($id){
-        $respuesta=ModeloUsuario::mdlInfoUsuario($id);
+    static public function ctrInfoProducto($id){
+        $respuesta=ModeloProducto::mdlInfoProducto($id);
         return $respuesta;
     }
 
-    static public function ctrEditUsuario(){
-        require "../modelo/usuarioModelo.php";
+    static public function ctrEditProducto(){
+        require "../modelo/productoModelo.php";
 
         if($_POST["password"]==$_POST["passActual"]){
             $password=$_POST["password"];
@@ -89,22 +89,22 @@ class ControladorUsuario{
 
         $data=array(
             "password"=>$password,
-            "id"=>$_POST["idUsuario"],
+            "id"=>$_POST["idProducto"],
             "perfil"=>$_POST["perfil"],
             "estado"=>$_POST["estado"]
         );
 
-        $respuesta=ModeloUsuario::mdlEditUsuario($data);
+        $respuesta=ModeloProducto::mdlEditProducto($data);
 
         echo $respuesta;
 
     }
 
-    static public function ctrEliUsuario(){
-        require "../modelo/usuarioModelo.php";
+    static public function ctrEliProducto(){
+        require "../modelo/productoModelo.php";
 
         $id=$_POST["id"];
-        $respuesta=ModeloUsuario::mdlEliUsuario($id);
+        $respuesta=ModeloProducto::mdlEliProducto($id);
         echo $respuesta;
     }
 }

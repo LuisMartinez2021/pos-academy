@@ -41,7 +41,11 @@
                                         <td><?php echo $value["nit_ci_cliente"]; ?></td>
                                         <td><?php echo $value["direccion_cliente"]; ?></td>
                                         <td><?php echo $value["nombre_cliente"]; ?></td>
-                                        <td><?php echo $value["telefono_cliente"]."-".$value["email_cliente"]; ?></td>
+                                        <td><?php echo $value["telefono_cliente"];
+                                                  if ($value["telefono_cliente"]!=""){
+                                                      echo " - ";
+                                                  }
+                                                  echo $value["email_cliente"]; ?></td>
                                         <td><div class="btn-group"><button class="btn btn-secondary" onclick="MEditCliente(<?php echo $value["id_cliente"]; ?>)"><i class="fas fa-edit"></i></button><button class="btn btn-danger" onclick="MEliCliente(<?php echo $value["id_cliente"]; ?>)"><i class="fas fa-trash"></i></button></div></td>
                                     </tr>
                                 <?php }

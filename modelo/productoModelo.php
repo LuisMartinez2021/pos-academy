@@ -1,13 +1,13 @@
 <?php
 require_once "conexion.php";
 
-class ModeloUsuario{
+class ModeloProducto{
     
     /*=========================
      Acceso al Sistema
      ==========================*/
-    static public function mdlAccesoUsuario($usuario){
-        $stmt=Conexion::conectar()->prepare("SELECT * FROM usuario WHERE login_usuario='$usuario'");
+    static public function mdlAccesoProducto($producto){
+        $stmt=Conexion::conectar()->prepare("SELECT * FROM producto WHERE login_producto='$producto'");
         $stmt->execute();
         
         return $stmt->fetch();
@@ -16,8 +16,8 @@ class ModeloUsuario{
         $stmt->null;
     }
     
-    static public function mdlInfoUsuarios(){
-        $stmt=Conexion::conectar()->prepare("SELECT * FROM usuario");
+    static public function mdlInfoProductos(){
+        $stmt=Conexion::conectar()->prepare("SELECT * FROM producto");
         $stmt->execute();
         
         return $stmt->fetchAll();
@@ -26,13 +26,13 @@ class ModeloUsuario{
         $stmt->null;
     }
     
-    static public function mdlRegUsuario($data){
-        $loginUsuario=$data["loginUsuario"];
+    static public function mdlRegProducto($data){
+        $loginProducto=$data["loginProducto"];
         $password=$data["password"];
         $perfil=$data["perfil"];
         
-        $stmt=Conexion::conectar()->prepare("INSERT INTO usuario(login_usuario,password,perfil) 
-        VALUES('$loginUsuario','$password','$perfil')");
+        $stmt=Conexion::conectar()->prepare("INSERT INTO producto(login_producto,password,perfil) 
+        VALUES('$loginProducto','$password','$perfil')");
         
         if($stmt->execute()){
             return "ok";
@@ -45,7 +45,7 @@ class ModeloUsuario{
     }
 
     static public function mdlActualizarAcceso($fechaHora,$id){
-        $stmt=Conexion::conectar()->prepare("UPDATE usuario SET ultimo_login='$fechaHora' WHERE id_usuario='$id'");
+        $stmt=Conexion::conectar()->prepare("UPDATE producto SET ultimo_login='$fechaHora' WHERE id_producto='$id'");
 
         if($stmt->execute()){
             return "ok";
@@ -57,8 +57,8 @@ class ModeloUsuario{
         $stmt->null;
     }
 
-    static public function mdlInfoUsuario($id){
-        $stmt=Conexion::conectar()->prepare("SELECT * FROM usuario WHERE id_usuario=$id");
+    static public function mdlInfoProducto($id){
+        $stmt=Conexion::conectar()->prepare("SELECT * FROM producto WHERE id_producto=$id");
         $stmt->execute();
 
         return $stmt->fetch();
@@ -66,14 +66,14 @@ class ModeloUsuario{
         $stmt->close();
         $stmt->null;
     }
-    static public function mdlEditUsuario($data){
+    static public function mdlEditProducto($data){
 
         $password=$data["password"];
         $perfil=$data["perfil"];
         $estado=$data["estado"];
         $id=$data["id"];
 
-        $stmt=Conexion::conectar()->prepare("UPDATE usuario SET password='$password', perfil='$perfil', estado='$estado' WHERE id_usuario=$id");
+        $stmt=Conexion::conectar()->prepare("UPDATE producto SET password='$password', perfil='$perfil', estado='$estado' WHERE id_producto=$id");
 
         if($stmt->execute()){
             return "ok";
@@ -85,9 +85,9 @@ class ModeloUsuario{
         $stmt->null;
     }
 
-    static public function mdlEliUsuario($id){
+    static public function mdlEliProducto($id){
 
-        $stmt=Conexion::conectar()->prepare("DELETE FROM usuario WHERE id_usuario=$id");
+        $stmt=Conexion::conectar()->prepare("DELETE FROM producto WHERE id_producto=$id");
 
         if($stmt->execute()){
             return "ok";
