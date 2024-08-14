@@ -97,6 +97,12 @@
                             <p>Lista de Productos</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="VSinCatalogos" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Sincronizacion Catalogos</p>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item">

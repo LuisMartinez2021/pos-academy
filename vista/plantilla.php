@@ -31,6 +31,7 @@ if(isset($_SESSION["ingreso"]) && $_SESSION["ingreso"]=="ok"){
             isset($_GET["ruta"])=="VUsuario"||
             isset($_GET["ruta"])=="VCliente"||
             isset($_GET["ruta"])=="VProducto"||
+            isset($_GET["ruta"])=="VSinCatalogos"||
             isset($_GET["ruta"])=="salir"){
             include "menu.php";
             include $_GET["ruta"].".php";
