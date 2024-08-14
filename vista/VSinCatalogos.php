@@ -22,15 +22,13 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Cod. Producto</th>
+                                    <th>Cod. Producto SIN</th>
+                                    <th>Cod. Actividad </th>
                                     <th>Descripción</th>
-                                    <th>Precio</th>
-                                    <th>Imagen</th>
-                                    <th>Estado</th>
                                     <th><button class="btn btn-primary" onclick="SinCatalogo()">Sincronizar</button></th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="CatProductos">
 
                                 </tbody>
                             </table>

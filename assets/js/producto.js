@@ -195,7 +195,9 @@ function SinCatalogo() {
         cache: false,
         contentType: "application/json",
         success: function(data){
-            console.log(data)
+            for (var i = 0; i < data["listaCodigos"].length; i++) {
+              $("#CatProductos").append("<tr><td>"+data["listaCodigos"][i]["codigoActividad"]+"</td><td>"+data["listaCodigos"][i]["codigoProducto"]+"</td><td>"+data["listaCodigos"][i]["descripcionProducto"]+"</td><td></td></tr>")
+            }
         }
     })
 }
