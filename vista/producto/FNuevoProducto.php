@@ -10,13 +10,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="">Cod. Producto <code>*</code></label>
-                            <input type="text" class="form-control" name="login" id="login" placeholder="Ingrese Producto">
+                            <input type="text" class="form-control" name="codProducto" id="codProducto">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="">Cod. Producto SIN <code>*</code></label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Ingrese Password">
+                            <input type="text" class="form-control" name="codProductoSIN" id="codProductoSIN">
                         </div>
                     </div>
                 </div>
@@ -24,13 +24,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="">Descripción <code>*</code></label>
-                            <input type="password" class="form-control" name="vrPassword" id="vrPassword" placeholder="Repita Password">
+                            <input type="text" class="form-control" name="desProdcuto" id="desProdcuto">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="">Precio <code>*</code></label>
-                            <input type="text" class="form-control" name="login" id="login" placeholder="Ingrese Producto">
+                            <input type="text" class="form-control" name="preProducto" id="preProducto">
                         </div>
                     </div>
                 </div>
@@ -38,13 +38,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="">Unidad de medida <code>*</code></label>
-                            <input type="text" class="form-control" name="login" id="login" placeholder="Ingrese Producto">
+                            <input type="text" class="form-control" name="login" id="login">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="">Unidad de medida SIN <code>*</code></label>
-                            <input type="text" class="form-control" name="login" id="login" placeholder="Ingrese Producto">
+                            <input type="text" class="form-control" name="login" id="login">
                         </div>
                     </div>
                 </div>
@@ -86,15 +86,15 @@ $(function () {
   });
   $('#FRegProducto').validate({
     rules: {
-      login: {
+        codProducto: {
         required: true,
         minlength: 3
       },
-      password: {
+        codProductoSIN: {
         required: true,
         minlength: 3
       },
-      vrPassword: {
+        desProdcuto: {
         required: true,
         minlength: 3
       },
