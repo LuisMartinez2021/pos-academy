@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-08-2024 a las 17:45:36
+-- Tiempo de generación: 16-08-2024 a las 13:39:09
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 7.4.27
 
@@ -112,6 +112,15 @@ CREATE TABLE `producto` (
   `disponible` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`id_producto`, `cod_producto`, `cod_producto_sin`, `nombre_producto`, `precio_producto`, `unidad_medida`, `unidad_medida_sin`, `imagen_producto`, `disponible`) VALUES
+(1, 'cod_01', 106140, 'SEMILLAS DE TRIGO, PARA SIEMBRA', '1.50', 'PZA', 64, '', 1),
+(3, 'cod_02', 1112, 'OTROS TRIGOS', '2.50', 'PZA', 64, 'Avena-Nure.jpg', 1),
+(4, 'cod_03', 1121, 'SEMILLAS DE MAÍZ, PARA SIEMBRA', '3.50', 'PZA', 64, 'Avena-Nure.jpg', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -133,7 +142,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `login_usuario`, `password`, `perfil`, `estado`, `ultimo_login`, `fecha_registro`) VALUES
-(1, 'admin', '$2y$10$0Iufo/3cELZshSjFytK.H.61ZJO4KdktDOmGTxN7j3wSUZlZ4jZwS', 'Administrador', 1, '2024-08-04 18:31:38', '2024-07-25 04:00:00'),
+(1, 'admin', '$2y$10$0Iufo/3cELZshSjFytK.H.61ZJO4KdktDOmGTxN7j3wSUZlZ4jZwS', 'Administrador', 1, '2024-08-15 19:53:26', '2024-07-25 04:00:00'),
 (2, 'luis', '$2y$10$1xt81f4GnR4cpzWKQhSgyehMuppNt6EiRp4hPdTuZevfUWtB8NDx.', 'Moderador', 1, '2024-08-03 10:51:32', '2024-07-29 22:50:34');
 
 --
@@ -208,7 +217,7 @@ ALTER TABLE `leyenda`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
