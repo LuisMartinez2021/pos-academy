@@ -22,8 +22,8 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Cod. Producto SIN</th>
                                     <th>Cod. Actividad </th>
+                                    <th>Cod. Producto SIN</th>
                                     <th>Descripción</th>
                                     <th><button class="btn btn-primary" onclick="SinCatalogo()">Sincronizar</button></th>
                                 </tr>

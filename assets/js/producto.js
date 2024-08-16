@@ -15,9 +15,8 @@ function MNuevoProducto(){
 
 function RegProducto(){
     var formData= new FormData($("#FRegProducto")[0])//Extrae informacion del formulario producto
-    
-    if(formData.get("password")==formData.get("vrPassword")){
-       $.ajax({
+
+    $.ajax({
         type:"POST",
         url:"controlador/productoControlador.php?ctrRegProducto",
         data: formData,
@@ -25,22 +24,22 @@ function RegProducto(){
         contentType: false,
         processData: false,
         success: function(data){
-            
+            console.log(data)
             if(data="ok"){
-                
+
                 Swal.fire({
                   title: "El Producto ha sido registrado",
                   icon:"success",
                   showConfirmButton: false,
                   timer: 1000
                 })
-                
+
                 setTimeout(function(){
                     location.reload()
                 },1200)
-                
+
             }else{
-                
+
                 Swal.fire({
                   title: "Error!",
                   icon:"error",
@@ -48,16 +47,15 @@ function RegProducto(){
                   timer: 1000
                 })
             }
-            
+
         }
-    }) 
-    }
+    })
 }
 
 function MEditProducto(id) {
     $("#modal-default").modal("show")
 
-    var obj=""
+    /*var obj=""
     $.ajax({
         type:"POST",
         url:"vista/producto/FEditProducto.php?id="+id,
@@ -65,10 +63,10 @@ function MEditProducto(id) {
         success: function(data){
             $("#content-default").html(data)
         }
-    })
+    })*/
 }
 
-function MEditProducto(id) {
+function editProducto(id) {
     var formData= new FormData($("#FEditProducto")[0])//Extrae informacion del formulario producto
 
     if(formData.get("password")==formData.get("vrPassword")){

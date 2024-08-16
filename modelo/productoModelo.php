@@ -27,12 +27,16 @@ class ModeloProducto{
     }
     
     static public function mdlRegProducto($data){
-        $loginProducto=$data["loginProducto"];
-        $password=$data["password"];
-        $perfil=$data["perfil"];
+        $codProducto=$data["codProducto"];
+        $codProductoSIN=$data["codProductoSIN"];
+        $desProducto=$data["desProducto"];
+        $preProducto=$data["preProducto"];
+        $unidadMedida=$data["unidadMedida"];
+        $unidadMedidaSIN=$data["unidadMedidaSIN"];
+        $imgProducto=$data["imgProducto"];
         
-        $stmt=Conexion::conectar()->prepare("INSERT INTO producto(login_producto,password,perfil) 
-        VALUES('$loginProducto','$password','$perfil')");
+        $stmt=Conexion::conectar()->prepare("INSERT INTO producto(cod_producto,cod_producto_sin,nombre_producto,precio_producto,unidad_medida,unidad_medida_sin,imagen_producto) 
+        VALUES('$codProducto','$codProductoSIN','$desProducto','$preProducto','$unidadMedida','$unidadMedidaSIN','$imgProducto')");
         
         if($stmt->execute()){
             return "ok";

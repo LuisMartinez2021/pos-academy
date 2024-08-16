@@ -58,13 +58,20 @@ class ControladorProducto{
     
     static public function ctrRegProducto(){
         require "../modelo/productoModelo.php";
-        
-        $password=password_hash($_POST["password"],PASSWORD_DEFAULT);
-        
+
+        $image=$_FILES["imgProducto"];
+        $imgNombre=$image["name"];
+        $imgTmp=$image["tmp_name"];
+
+        move_uploaded_file($imgTmp,"../assets/dist/img/productos/".$imgNombre);
         $data=array(
-            "loginProducto"=>$_POST["login"],
-            "password"=>$password,
-            "perfil"=>"Moderador"
+            "codProducto"=>$_POST["codProducto"],
+            "codProductoSIN"=>$_POST["codProductoSIN"],
+            "desProducto"=>$_POST["desProducto"],
+            "preProducto"=>$_POST["preProducto"],
+            "unidadMedida"=>$_POST["unidadMedida"],
+            "unidadMedidaSIN"=>$_POST["unidadMedidaSIN"],
+            "imgProducto"=>$imgNombre
         );
         
         $respuesta=ModeloProducto::mdlRegProducto($data);

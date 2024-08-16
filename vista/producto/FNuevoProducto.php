@@ -24,7 +24,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="">Descripción <code>*</code></label>
-                            <input type="text" class="form-control" name="desProdcuto" id="desProdcuto">
+                            <input type="text" class="form-control" name="desProducto" id="desProducto">
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -38,13 +38,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="">Unidad de medida <code>*</code></label>
-                            <input type="text" class="form-control" name="login" id="login">
+                            <input type="text" class="form-control" name="unidadMedida" id="unidadMedida">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="">Unidad de medida SIN <code>*</code></label>
-                            <input type="text" class="form-control" name="login" id="login">
+                            <input type="text" class="form-control" name="unidadMedidaSIN" id="unidadMedidaSIN">
                         </div>
                     </div>
                 </div>
@@ -94,9 +94,23 @@ $(function () {
         required: true,
         minlength: 3
       },
-        desProdcuto: {
+        desProducto: {
         required: true,
         minlength: 3
+      },
+        preProducto: {
+            required: true,
+            minlength: 1,
+            number: true
+      },
+        unidadMedida: {
+            required: true,
+            minlength: 1
+      },
+        unidadMedidaSIN: {
+            required: true,
+            minlength: 1,
+            number: true
       },
     },
     
