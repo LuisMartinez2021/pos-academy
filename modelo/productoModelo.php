@@ -15,12 +15,22 @@ class ModeloProducto{
         $stmt->close();
         $stmt->null;
     }
-    
+
     static public function mdlInfoProductos(){
         $stmt=Conexion::conectar()->prepare("SELECT * FROM producto");
         $stmt->execute();
-        
+
         return $stmt->fetchAll();
+
+        $stmt->close();
+        $stmt->null;
+    }
+
+    static public function mdlInfoProducto($id){
+        $stmt=Conexion::conectar()->prepare("SELECT * FROM producto WHERE id_producto=$id");
+        $stmt->execute();
+        
+        return $stmt->fetch();
         
         $stmt->close();
         $stmt->null;
@@ -61,15 +71,6 @@ class ModeloProducto{
         $stmt->null;
     }
 
-    static public function mdlInfoProducto($id){
-        $stmt=Conexion::conectar()->prepare("SELECT * FROM producto WHERE id_producto=$id");
-        $stmt->execute();
-
-        return $stmt->fetch();
-
-        $stmt->close();
-        $stmt->null;
-    }
     static public function mdlEditProducto($data){
 
         $password=$data["password"];

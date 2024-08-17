@@ -66,6 +66,21 @@ function MEditProducto(id) {
     })*/
 }
 
+function MVerProducto(id) {
+    $("#modal-lg").modal("show")
+
+    var obj=""
+    $.ajax({
+        type:"POST",
+        url:"vista/producto/MVerProducto.php?id="+id,
+        data: obj,
+        success: function(data){
+            $("#content-lg").html(data)
+        }
+    })
+
+}
+
 function editProducto(id) {
     var formData= new FormData($("#FEditProducto")[0])//Extrae informacion del formulario producto
 
