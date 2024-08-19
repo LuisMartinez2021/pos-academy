@@ -42,7 +42,7 @@ $producto=ControladorProducto::ctrInfoProducto($id);
                     <td><?php echo $producto["unidad_medida_sin"];?></td>
                 </tr>
                 <tr>
-                    <th>Disponibilidad:</th>
+                    <th>Estado:</th>
                     <td><?php
                         if($producto["disponible"]==1){
                             ?>
@@ -57,7 +57,7 @@ $producto=ControladorProducto::ctrInfoProducto($id);
                 </tr>
             </table>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6" style="text-align: center">
             <?php
             if($producto["imagen_producto"]==""){
                 ?>

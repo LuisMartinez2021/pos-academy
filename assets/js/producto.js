@@ -53,17 +53,17 @@ function RegProducto(){
 }
 
 function MEditProducto(id) {
-    $("#modal-default").modal("show")
+    $("#modal-lg").modal("show")
 
-    /*var obj=""
+    var obj=""
     $.ajax({
         type:"POST",
         url:"vista/producto/FEditProducto.php?id="+id,
         data: obj,
         success: function(data){
-            $("#content-default").html(data)
+            $("#content-lg").html(data)
         }
-    })*/
+    })
 }
 
 function MVerProducto(id) {
@@ -81,10 +81,9 @@ function MVerProducto(id) {
 
 }
 
-function editProducto(id) {
+function editProducto() {
     var formData= new FormData($("#FEditProducto")[0])//Extrae informacion del formulario producto
 
-    if(formData.get("password")==formData.get("vrPassword")){
         $.ajax({
             type:"POST",
             url:"controlador/productoControlador.php?ctrEditProducto",
@@ -93,7 +92,6 @@ function editProducto(id) {
             contentType: false,
             processData: false,
             success: function(data){
-            console.log(data)
                 if(data="ok"){
 
                     Swal.fire({
@@ -119,7 +117,6 @@ function editProducto(id) {
 
             }
         })
-    }
 }
 
 function MEliProducto(id) {
