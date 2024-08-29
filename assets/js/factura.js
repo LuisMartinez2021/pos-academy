@@ -1,6 +1,6 @@
 /*--------------------------------
 Variables Globales
- */
+---------------------------------*/
 var host="http://localhost:5000/"
 function verificarComunicacion() {
     var obj=""
