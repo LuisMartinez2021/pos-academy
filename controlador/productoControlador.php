@@ -91,15 +91,12 @@ class ControladorProducto{
         $image=$_FILES["imgProducto"];
 
         if($image["name"]==""){
-            $imgNombre=$image["imgActual"];
+            $imgNombre=$_POST["imgActual"];
         }else{
-            $imgNombre=$img["name"];
+            $imgNombre=$image["name"];
             $imgTmp=$image["tmp_name"];
             move_uploaded_file($imgTmp,"../assets/dist/img/productos/".$imgNombre);
         }
-
-
-
 
         $data=array(
             "idProducto"=>$_POST["idProducto"],

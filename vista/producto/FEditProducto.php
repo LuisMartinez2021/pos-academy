@@ -66,7 +66,7 @@ $producto=ControladorProducto::ctrInfoProducto($id);
                     <div class="input-group">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="imgProducto" name="imgProducto" onchange="previsualizar()">
-                            <input type="hidden" name="imgActual" value="<?php $producto["imagen_producto"];?>">
+                            <input type="hidden" name="imgActual" value="<?php echo $producto["imagen_producto"]; ?>">
                             <label class="custom-file-label" for="imgProducto">Elegir archivo</label>
                         </div>
                         <div class="input-group-append">
